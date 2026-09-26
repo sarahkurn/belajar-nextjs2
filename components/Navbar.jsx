@@ -30,7 +30,7 @@ export default function Navbar() {
           href="/"
           className="shrink-0 text-sm font-bold tracking-tight"
         >
-          MyWebsite
+          SarahWebsite
         </Link>
 
         <div className="hidden items-center gap-1 text-sm text-muted-foreground sm:flex">
@@ -61,17 +61,8 @@ export default function Navbar() {
               pathname?.startsWith("/favorites") && "bg-foreground/10 text-foreground"
             )}
           >
-            <Heart
-              className={cn(
-                "size-4",
-                favorites.length > 0 && "fill-destructive text-destructive"
-              )}
-            />
-            {favorites.length > 0 && (
-              <span className="flex size-4 items-center justify-center rounded-full bg-destructive text-[10px] font-medium text-destructive-foreground">
-                {favorites.length}
-              </span>
-            )}
+            Favorite ({favorites.length})
+            
           </Link>
         </div>
 

@@ -1,7 +1,5 @@
 "use client";
 
-import { Heart } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import { useFavorite } from "@/context/FavoriteContext";
 
@@ -33,37 +31,29 @@ export default function UserCard({ user }) {
             </div>
             <CardTitle>{user.name}</CardTitle>
           </div>
-
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            onClick={() => toggleFavorite(user)}
-            aria-label={
-              favorited ? "Remove from Favourite" : "Add to Favourite"
-            }
-            className="shrink-0 rounded-full"
-          >
-            <Heart
-              className={
-                favorited
-                  ? "size-5 fill-destructive text-destructive"
-                  : "size-5 text-muted-foreground"
-              }
-            />
-          </Button>
         </div>
       </CardHeader>
-
-      <CardContent>
+          
+     <CardContent>
         <p className="text-sm text-muted-foreground">{user.email}</p>
 
         <p className="mt-1 text-sm text-muted-foreground">
           {user.company.name}
         </p>
 
-        <Button className="mt-4 w-full rounded-full">View Profile</Button>
+        <div className="mt-4 flex gap-2">
+          <Button className="flex-1 rounded-full">View Profile</Button>
+
+          <Button
+            type="button"
+            variant={favorited ? "outline" : "default"}
+            onClick={() => toggleFavorite(user)}
+            className="flex-1 rounded-full"
+          >
+            {favorited ? "♥ Favourite" : "♡ Add Favourite"}
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
-}
+  }
