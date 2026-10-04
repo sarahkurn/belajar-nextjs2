@@ -17,9 +17,11 @@ export default function FavoritesPage() {
           <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
             My Favorite Users 
             <p>
-            <Button asChild className="rounded-full">
-            <Link href="/users">Browse User Directory</Link>
-            </Button>
+          <Button
+            render={<Link href="/users" />}
+            nativeButton={false}
+             className="rounded-full"> Browse User Directory
+          </Button>
             </p>
           </h1>
           <p className="mt-4 text-muted-foreground">
