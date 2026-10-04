@@ -1,0 +1,3 @@
+Halaman /messages adalah Server Component yang membaca data langsung dari server setiap kali di render. 
+Saat Server Action deleteMessageAction berhasil menghapus data, 
+pemanggilan revalidatePath("/messages") membuat Next.js otomatis me-render ulang halaman di server dan mengirim versi terbaru ke browser, sehingga tampilan ter-update tanpa reload manual. Sebaliknya, /favorites menggunakan Client Component dengan state lokal (useState) yang di-update manual lewat setFavorites setelah fetch ke API — karena tidak melalui mekanisme render-ulang server seperti revalidatePath, update di sini sepenuhnya bergantung pada logic JavaScript di sisi client, bukan otomatis dari Next.js.
